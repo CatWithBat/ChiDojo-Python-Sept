@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Ninja Gold</title>
+		<meta charset="utf-8">
+		<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+		<script>
+		$(document).ready(function(){
+		
+		$('.form').submit(function(){
+			$.post('/process_money')
+		}
+		}
+		</script>
+		<style>
+	.action{
+		border: 3px black;
+		height:300px;
+		width: 200px;
+		display:inline-block;
+	}
+	#container{
+		width:1400px;
+		height:900px;
+	}
+	#activities{
+		width:700px;
+		height:400px;
+	}
+	</style>
+	</head>
+	<body>
+	<div id="container">
+		<p>Your Gold: {{session['total_gold']}}</p>		
+
+		<div class="action">
+			<h2>Farm</h2>
+			<p>(earns 10-20 golds)</p>
+			<form method="post" action="/process_money">
+				<input type="hidden" name="building" value="farm"/>
+				<input type="submit" value="Find Gold"/>
+			</form>
+		</div>
+		<div class="action">
+					<h2>Cave</h2>
+					<p>(earns 5-10 golds)</p>
+					<form action="/process_money" method="post"> 
+						<input type="hidden" name="building" value="cave"/>
+						<input type="submit" value="Find Gold"/>
+					</form>
+		</div>
+		<div class="action">
+			<h2>House</h2>
+			<p>(earns 10-20 golds)</p>
+			<form action="/process_money" method="post">
+				<input type="hidden" name="building" value="house"/>
+				<input type="submit" value="Find Gold"/>
+			</form>
+		</div>
+		<div class="action">
+			<h2>Casino</h2>
+			<p>(earns 10-20 golds)</p>
+			<form action="/process_money" method="post">
+				<input type="hidden" name="building" value="casino"/>
+				<input type="submit" value="Find Gold"/>
+			</form>
+		</div>
+		<div id='activities' style='overflow:auto'>
+			{%for message in session['message']: %}
+			<p>
+			{{message}}
+			</p>
+			{% endfor %}
+		</div>
+	</div>
+	</body>
+</html>
