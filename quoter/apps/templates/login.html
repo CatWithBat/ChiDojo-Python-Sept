@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Login/Registration</title>
+</head>
+<body>
+	<h1>Welcome</h1>
+	<div id='Registration'>
+		<h2>Register</h2>
+		<form action='/register' method='post'>
+		Name: <input type="text" name='name'>
+		Alias: <input type="text" name='alias'>
+		Email: <input type="text" name ='email'>
+		Password: <input type="text" name='pword'>
+		Confirm Password: <input type="text" name= 'cpword'>
+		<button>Register</button>
+		</form>
+	</div>
+	<div id='Signin'>
+		<h2>Login</h2>
+		<form action='/login' method='post'>
+		Email:<input type="text" name='email'>
+		Password:<input type="text" name='pword'>
+		<button>Login</button>
+		</form>
+	</div>
+</body>
+</html>
